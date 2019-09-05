@@ -1,0 +1,37 @@
+---
+title: 'EC 420 HW #1'
+author: "Sam Isken"
+date: "January 21, 2019"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+EC420_4Set = c(1,2,3,4,5)
+probabilities = c(1/5,1/5,1/5,1/5,1/5)
+sample_set_4 = sample(EC420_4Set,147, replace = TRUE, prob = probabilities)
+
+mean(sample_set_4)
+var(sample_set_4)
+
+One_sample_set_4_Step3 = replicate(10000,mean(sample(EC420_4Set,147, replace = TRUE, prob = probabilities)))
+mean(One_sample_set_4_Step3)
+Two_sample_set_4_Step3 = replicate(10000,var(sample(EC420_4Set,147, replace = TRUE, prob = probabilities)))
+mean(Two_sample_set_4_Step3)
+hist(One_sample_set_4_Step3)
+
+
+Three_sample_set_4_Step3 = replicate(10000,mean(sample(EC420_4Set,289, replace = TRUE, prob = probabilities)))
+mean(Three_sample_set_4_Step3)
+Four_sample_set_4_Step3 = replicate(10000,var(sample(EC420_4Set,289, replace = TRUE, prob = probabilities)))
+mean(Four_sample_set_4_Step3)
+hist(Three_sample_set_4_Step3)
+```
+
+
+

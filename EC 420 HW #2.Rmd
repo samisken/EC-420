@@ -1,0 +1,37 @@
+
+
+
+---
+title: 'EC 420 HW #2'
+author: "Sam Isken"
+date: "January 29, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(ggplot2)
+```
+
+```{r}
+studentDF <- read.table(file = "clipboard", header=TRUE)
+
+studentDF %>%
+  ggplot(aes(x = ACT, y= GPA))+
+  geom_point(colour = 'black')
+
+
+GPABar = mean(studentDF$GPA)
+ACTBar = mean(studentDF$ACT)
+
+
+lmodel <- lm(studentDF$GPA ~ studentDF$ACT) 
+
+summary(lmodel)
+plot(lmodel)
+
+
+
+
+```
